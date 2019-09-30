@@ -1,3 +1,7 @@
+:root {
+	--bg: #fffafa;
+}
+
 html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -14,10 +18,12 @@ html {
 
 body {
 	overflow-x: hidden;
-	color: #131313;
+	color: #2b2b2b;
+	background-color: var(--bg);
 	user-select: none;
 	font-family: 'Roboto Mono', monospace;
-	font-size: 2rem;
+	font-size: 4rem;
+	font-weight: bold;
 }
 
 .calc {
@@ -28,16 +34,41 @@ body {
 	height: 64rem;
 	width: 48rem;
 	padding: 6rem;
-	background-color: #333333;
-	border-radius: 1rem;
+	background-color: #00563f;
 }
 
 .calc__display {
 	width: 100%;
 	height: 8rem;
 	padding: 0 3rem;
+	margin-bottom: 4rem;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	background-color: #fefefe;
+	background-color: var(--bg);
+}
+
+.calc__current {
+}
+
+.calc__funcs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	justify-content: center;
+	align-items: center;
+	font-size: .4em;
+	margin-right: auto;
+}
+
+.calc__func {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3px;
+	color: #aaaaaa;
+}
+
+.calc__func.active {
+	color: currentColor;
 }

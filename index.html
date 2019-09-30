@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="/fonts/fontawesome-free-5.11.2-web/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/main.css">
@@ -11,7 +12,18 @@
 </head>
 <body>
 	<main class="calc">
-		<p class="calc__display">CURRENT</p>
+		<div class="calc__display">
+			<div class="calc__funcs">
+				<i class="fas fa-plus calc__func" data-function="add"></i>
+				<i class="fas fa-minus calc__func" data-function="subtract"></i>
+				<i class="fas fa-times calc__func" data-function="multiply"></i>
+				<i class="fas fa-divide calc__func" data-function="divide"></i>
+			</div>
+			<div class="calc__current">0</div>
+		</div>
+		<div class="calc__io">
+		</div>
 	</main>
+	<aside class="history"></aside>
 </body>
 </html>
