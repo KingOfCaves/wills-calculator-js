@@ -42,37 +42,38 @@
 
 		switch(mode) {
 			case 'add':
-				compiled = memory + current;
+				compiled = decimalFix(memory + current);
 				events.unshift(`${memory} + ${current} = ${compiled}`);
 				break;
 			case 'subtract':
-				compiled = memory - current;
+				compiled = decimalFix(memory - current);
 				events.unshift(`${memory} - ${current} = ${compiled}`);
 				break;
 			case 'multiply':
-				compiled = memory * current;
+				compiled = decimalFix(memory * current);
 				events.unshift(`${memory} × ${current} = ${compiled}`);
 				break;
 			case 'divide':
-				compiled = memory / current;
+				compiled = decimalFix(memory / current);
 				events.unshift(`${memory} × ${current} = ${compiled}`);
 				break;
 			case 'invert':
-				compiled = -current;
+				compiled = -decimalFix(current);
 				events.unshift(`${current} × -1 = ${compiled}`);
 				break;
 			case 'sqrt':
-				compiled = parseFloat(Math.sqrt(current).toFixed(3));
+				compiled = decimalFix(Math.sqrt(current));
 				events.unshift(`√${current} = ${compiled}`);
 				break;
 			case 'percentage':
-				compiled = parseFloat((current * (memory / 100)).toFixed(3));
-				events.unshift(`${memory}% OF ${current} = ${compiled}`);
+				compiled = decimalFix(memory * (current / 100));
+				events.unshift(`${current}% OF ${memory} = ${compiled}`);
 				break;
 			default:
 				return;
 		}
 		current = compiled;
+		memory = compiled;
 		setMode(null);
 	}
 
@@ -103,6 +104,12 @@
 		console.log('render');
 	}
 
+	function decimalFix(num) {
+		return parseFloat(num.toFixed(4));
+	}
+
+	// EVENTS
+	
 	$buttons.forEach(button => {
 		button.addEventListener('click', () => {
 			const input = button.textContent;
