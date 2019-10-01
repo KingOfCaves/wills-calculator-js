@@ -40,12 +40,6 @@ body > :first-child {
 	margin-right: 4rem;
 }
 
-h2 {
-	font-size: 1.5em;
-	margin-bottom: 4px;
-	text-transform: uppercase;
-}
-
 .calc {
 	display: flex;
 	flex-direction: column;
@@ -135,19 +129,36 @@ h2 {
 }
 
 .history {
-	width: auto;
-	height: auto;
-	list-style: square inside;
-	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	width: 32rem;
 	height: 32rem;
-	overflow-y: scroll;
 	background-color: var(--calcbody);
 	backdrop-filter: blur(8px);
 	box-shadow: 0 0 1rem black;
 	text-align: center;
+	text-transform: uppercase;
+}
+
+.history__heading {
+	padding: 2rem 2rem 0 2rem;
+	font-size: 1.5em;
+}
+
+.history__clear {
+	background-color: var(--calcfunc);
+	color: var(--bg);
+	padding: 1rem;
+}
+
+.events {
+	padding: 2rem;
+	overflow-y: scroll;
+	height: 100%;
 }
 
 .event {
+	font-size: .75em;
 }
 
 .event:not(:last-child) {

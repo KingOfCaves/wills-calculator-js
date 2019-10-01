@@ -4,6 +4,7 @@
 	const $icons = Array.from(document.querySelectorAll('.calc__icon'));
 	const $buttons = document.querySelectorAll('.calc__button');
 	const $events = document.querySelector('.events');
+	const $clearHistory = document.querySelector('.history__clear');
 
 	// VALUES
 	let current = 0;
@@ -16,56 +17,62 @@
 		$icons.forEach(icon => icon.classList.remove('active'));
 		if (!type) { return mode = null };
 
-		const found = $icons.find(icon => icon.dataset.mode === type);
-		if (found) {
-			if (found.classList.contains('active')) {
-				return;
-			} else {
-				found.classList.add('active');
-			}
-		}
-
 		mode = type;
-		console.log(mode);
 
 		if (current !== 0) {
 			memory = current;
 			current = 0;
 		}
-		
-		render();
+
+		const found = $icons.find(icon => icon.dataset.mode === type);
+		if (found) {
+			if (found.classList.contains('active')) {
+				return;
+			} else {
+				console.log(mode);
+				found.classList.add('active');
+			}
+		}
 	}
 
 	function calc(mode) {
 		current = parseFloat(current);
 		memory = parseFloat(memory);
+		let compiled = 0;
 
 		switch(mode) {
 			case 'add':
-				events.unshift(`${memory} + ${current}`);
-				current = memory + current;
+				compiled = memory + current;
+				events.unshift(`${memory} + ${current} = ${compiled}`);
 				break;
 			case 'subtract':
-				current = memory - current;
+				compiled = memory - current;
+				events.unshift(`${memory} - ${current} = ${compiled}`);
 				break;
 			case 'multiply':
-				current = memory * current;
+				compiled = memory * current;
+				events.unshift(`${memory} × ${current} = ${compiled}`);
 				break;
 			case 'divide':
-				current = memory / current;
+				compiled = memory / current;
+				events.unshift(`${memory} × ${current} = ${compiled}`);
 				break;
 			case 'invert':
-				current = -current;
+				compiled = -current;
+				events.unshift(`${current} × -1 = ${compiled}`);
 				break;
 			case 'sqrt':
-				current = parseFloat(Math.sqrt(current).toFixed(3));
+				compiled = parseFloat(Math.sqrt(current).toFixed(3));
+				events.unshift(`√${current} = ${compiled}`);
 				break;
 			case 'percentage':
-				current = memory * (current / 100);
+				compiled = parseFloat((current * (memory / 100)).toFixed(3));
+				events.unshift(`${memory}% OF ${current} = ${compiled}`);
 				break;
 			default:
 				return;
 		}
+		current = compiled;
 		setMode(null);
 	}
 
@@ -77,18 +84,23 @@
 	function clear() {
 		current = 0;
 		memory = 0;
+		setMode(null);
+	}
+
+	function clearHistory() {
 		events = [];
 		render();
-		setMode(null);
 	}
 
 	function render() {
 		$events.innerHTML = '';
 		if (events.length > 0) {
-			$events.innerHTML += events.forEach(event => `<div class="event">${event}</div>`);
+			const HTML = events.map(event => `<div class="event">${event}</div>`).join('\n');
+			$events.innerHTML = HTML;
 		}
 
 		$display.textContent = current;
+		console.log('render');
 	}
 
 	$buttons.forEach(button => {
@@ -141,4 +153,6 @@
 			render();
 		})
 	})
+	
+	$clearHistory.addEventListener('click', clearHistory);
 }())
