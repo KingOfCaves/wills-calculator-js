@@ -1,5 +1,7 @@
 :root {
 	--bg: #fffafa;
+	--calcbody: #b5b5bd55;
+	--calcfunc: #3f434d;
 }
 
 html {
@@ -17,58 +19,109 @@ html {
 }
 
 body {
+	width: 100%;
+	height: 100vh;
 	overflow-x: hidden;
 	color: #2b2b2b;
-	background-color: var(--bg);
+	background-image: url(/imgs/bg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	user-select: none;
-	font-family: 'Roboto Mono', monospace;
+	font-family: monospace;
 	font-size: 4rem;
 	font-weight: bold;
 }
 
 .calc {
+	display: flex;
+	flex-direction: column;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	height: 64rem;
-	width: 48rem;
-	padding: 6rem;
-	background-color: #00563f;
+	height: auto;
+	width: auto;
+	padding: 3rem;
+	background-color: var(--calcbody);
+	backdrop-filter: blur(8px);
+	box-shadow: 0 0 1rem black;
 }
 
 .calc__display {
 	width: 100%;
-	height: 8rem;
-	padding: 0 3rem;
-	margin-bottom: 4rem;
+	padding: 1rem 2rem;
+	margin-bottom: 2rem;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	background-color: var(--bg);
 }
 
-.calc__current {
-}
-
-.calc__funcs {
+.calc__icons {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto;
 	justify-content: center;
 	align-items: center;
-	font-size: .4em;
+	font-size: .66em;
 	margin-right: auto;
 }
 
-.calc__func {
+.calc__icon {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 3px;
+	padding: 0 3px;
 	color: #aaaaaa;
 }
 
-.calc__func.active {
+.calc__icon.active {
 	color: currentColor;
+}
+
+.calc__io {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.calc__io > :first-child {
+	margin-right: 2rem;
+}
+
+.calc__numpad {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	column-gap: 8px;
+	row-gap: 8px;
+}
+
+.calc__modes {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	column-gap: 8px;
+	row-gap: 8px;
+}
+
+.calc__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 2rem;
+	background-color: var(--bg);
+	font-size: .8em;
+}
+
+.calc__func {
+	background-color: var(--calcfunc);
+	color: var(--bg);
+}
+
+.calc__modes .calc__button {
+	width: 100%;
 }

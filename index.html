@@ -4,26 +4,48 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="/fonts/fontawesome-free-5.11.2-web/css/all.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/main.css">
 	<title>JSCalc</title>
 </head>
 <body>
 	<main class="calc">
 		<div class="calc__display">
-			<div class="calc__funcs">
-				<i class="fas fa-plus calc__func" data-function="add"></i>
-				<i class="fas fa-minus calc__func" data-function="subtract"></i>
-				<i class="fas fa-times calc__func" data-function="multiply"></i>
-				<i class="fas fa-divide calc__func" data-function="divide"></i>
+			<div class="calc__icons">
+				<div class="calc__icon" data-mode="add">&plus;</div>
+				<div class="calc__icon" data-mode="subtract">&minus;</div>
+				<div class="calc__icon" data-mode="multiply">&times;</div>
+				<div class="calc__icon" data-mode="divide">&divide;</div>
 			</div>
 			<div class="calc__current">0</div>
 		</div>
 		<div class="calc__io">
+			<div class="calc__numpad">
+				<div class="calc__button calc__func">&PlusMinus;</div>
+				<div class="calc__button calc__func">&Sqrt;</div>
+				<div class="calc__button calc__func">&percnt;</div>
+				<div class="calc__button calc__num">9</div>
+				<div class="calc__button calc__num">8</div>
+				<div class="calc__button calc__num">7</div>
+				<div class="calc__button calc__num">6</div>
+				<div class="calc__button calc__num">5</div>
+				<div class="calc__button calc__num">4</div>
+				<div class="calc__button calc__num">3</div>
+				<div class="calc__button calc__num">2</div>
+				<div class="calc__button calc__num">1</div>
+				<div class="calc__button calc__func">C</div>
+				<div class="calc__button calc__num">0</div>
+				<div class="calc__button calc__num">.</div>
+			</div>
+			<div class="calc__modes">
+				<div class="calc__button calc__func">&plus;</div>
+				<div class="calc__button calc__func">&minus;</div>
+				<div class="calc__button calc__func">&times;</div>
+				<div class="calc__button calc__func">&divide;</div>
+				<div class="calc__button calc__func">&equals;</div>
+			</div>
 		</div>
 	</main>
 	<aside class="history"></aside>
+<script src="/js/index.js"></script>
 </body>
 </html>
