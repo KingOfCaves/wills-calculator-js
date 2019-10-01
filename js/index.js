@@ -3,11 +3,13 @@
 	const $display = document.querySelector('.calc__current');
 	const $icons = Array.from(document.querySelectorAll('.calc__icon'));
 	const $buttons = document.querySelectorAll('.calc__button');
+	const $events = document.querySelector('.events');
 
 	// VALUES
 	let current = 0;
 	let memory = 0;
 	let mode = null;
+	let events = [];
 
 	// FUNCTIONS
 	function setMode(type) {
@@ -40,6 +42,7 @@
 
 		switch(mode) {
 			case 'add':
+				events.unshift(`${memory} + ${current}`);
 				current = memory + current;
 				break;
 			case 'subtract':
@@ -60,6 +63,8 @@
 			case 'percentage':
 				current = memory * (current / 100);
 				break;
+			default:
+				return;
 		}
 		setMode(null);
 	}
@@ -72,11 +77,17 @@
 	function clear() {
 		current = 0;
 		memory = 0;
+		events = [];
 		render();
 		setMode(null);
 	}
 
 	function render() {
+		$events.innerHTML = '';
+		if (events.length > 0) {
+			$events.innerHTML += events.forEach(event => `<div class="event">${event}</div>`);
+		}
+
 		$display.textContent = current;
 	}
 
