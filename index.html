@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="./css/reset.css">
-	<link rel="stylesheet" href="./css/main.css">
-	<title>JSCalc</title>
-</head>
-<body>
-	<main class="calc">
-		<div class="calc__display">
-			<div class="calc__icons">
-				<div class="calc__icon" data-mode="add">&plus;</div>
-				<div class="calc__icon" data-mode="subtract">&minus;</div>
-				<div class="calc__icon" data-mode="multiply">&times;</div>
-				<div class="calc__icon" data-mode="divide">&divide;</div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>JSCalc</title>
+	</head>
+	<body>
+		<main class="calc">
+			<div class="calc__display">
+				<div class="calc__icons">
+					<div class="calc__icon" data-mode="add">&plus;</div>
+					<div class="calc__icon" data-mode="subtract">&minus;</div>
+					<div class="calc__icon" data-mode="multiply">&times;</div>
+					<div class="calc__icon" data-mode="divide">&divide;</div>
+					<div class="calc__icon" data-mode="percentage">&percnt;</div>
+				</div>
+				<div class="calc__current">0</div>
 			</div>
-			<div class="calc__current">0</div>
-		</div>
-		<div class="calc__io">
-			<div class="calc__numpad">
-				<div class="calc__button calc__func">&PlusMinus;</div>
-				<div class="calc__button calc__func">&Sqrt;</div>
-				<div class="calc__button calc__func">&percnt;</div>
-				<div class="calc__button calc__num">9</div>
-				<div class="calc__button calc__num">8</div>
-				<div class="calc__button calc__num">7</div>
-				<div class="calc__button calc__num">6</div>
-				<div class="calc__button calc__num">5</div>
-				<div class="calc__button calc__num">4</div>
-				<div class="calc__button calc__num">3</div>
-				<div class="calc__button calc__num">2</div>
-				<div class="calc__button calc__num">1</div>
-				<div class="calc__button calc__func">C</div>
-				<div class="calc__button calc__num">0</div>
-				<div class="calc__button calc__num">.</div>
+			<div class="calc__io">
+				<div class="calc__numpad">
+					<div class="calc__button calc__func">&PlusMinus;</div>
+					<div class="calc__button calc__func">&Sqrt;</div>
+					<div class="calc__button calc__func">&percnt;</div>
+					<div class="calc__button calc__num">9</div>
+					<div class="calc__button calc__num">8</div>
+					<div class="calc__button calc__num">7</div>
+					<div class="calc__button calc__num">6</div>
+					<div class="calc__button calc__num">5</div>
+					<div class="calc__button calc__num">4</div>
+					<div class="calc__button calc__num">3</div>
+					<div class="calc__button calc__num">2</div>
+					<div class="calc__button calc__num">1</div>
+					<div class="calc__button calc__func">C</div>
+					<div class="calc__button calc__num">0</div>
+					<div class="calc__button calc__num">.</div>
+				</div>
+				<div class="calc__modes">
+					<div class="calc__button calc__func">&plus;</div>
+					<div class="calc__button calc__func">&minus;</div>
+					<div class="calc__button calc__func">&times;</div>
+					<div class="calc__button calc__func">&divide;</div>
+					<div class="calc__button calc__func">&equals;</div>
+				</div>
 			</div>
-			<div class="calc__modes">
-				<div class="calc__button calc__func">&plus;</div>
-				<div class="calc__button calc__func">&minus;</div>
-				<div class="calc__button calc__func">&times;</div>
-				<div class="calc__button calc__func">&divide;</div>
-				<div class="calc__button calc__func">&equals;</div>
-			</div>
-		</div>
-	</main>
-	<aside class="history">
-		<h2 class="history__heading">History</h2>
-		<div class="events"></div>
-		<div class="history__clear">CLEAR</div>
-	</aside>
-<script src="./js/index.js"></script>
-</body>
+		</main>
+		<aside class="history">
+			<h2 class="history__heading">History</h2>
+			<div class="events"></div>
+			<div class="history__clear">CLEAR</div>
+		</aside>
+		<script src="./js/index.js"></script>
+	</body>
 </html>
