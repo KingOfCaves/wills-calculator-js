@@ -1,4 +1,4 @@
-(function(){
+(function () {
 	// DOM ELEMENTS
 	const $display = document.querySelector('.calc__current');
 	const $icons = Array.from(document.querySelectorAll('.calc__icon'));
@@ -14,8 +14,10 @@
 
 	// FUNCTIONS
 	function setMode(type) {
-		$icons.forEach(icon => icon.classList.remove('active'));
-		if (!type) { return mode = null };
+		$icons.forEach((icon) => icon.classList.remove('active'));
+		if (!type) {
+			return (mode = null);
+		}
 
 		mode = type;
 
@@ -24,7 +26,7 @@
 			current = 0;
 		}
 
-		const found = $icons.find(icon => icon.dataset.mode === type);
+		const found = $icons.find((icon) => icon.dataset.mode === type);
 		if (found) {
 			if (found.classList.contains('active')) {
 				return;
@@ -40,7 +42,7 @@
 		memory = parseFloat(memory);
 		let compiled = 0;
 
-		switch(mode) {
+		switch (mode) {
 			case 'add':
 				compiled = decimalFix(memory + current);
 				events.unshift(`${memory} + ${current} = ${compiled}`);
@@ -78,7 +80,9 @@
 	}
 
 	function decimal(value) {
-		if (!value.includes('.')) { current = value + '.' };
+		if (!value.includes('.')) {
+			current = value + '.';
+		}
 		return;
 	}
 
@@ -96,7 +100,7 @@
 	function render() {
 		$events.innerHTML = '';
 		if (events.length > 0) {
-			const HTML = events.map(event => `<div class="event">${event}</div>`).join('\n');
+			const HTML = events.map((event) => `<div class="event">${event}</div>`).join('\n');
 			$events.innerHTML = HTML;
 		}
 
@@ -109,8 +113,8 @@
 	}
 
 	// EVENTS
-	
-	$buttons.forEach(button => {
+
+	$buttons.forEach((button) => {
 		button.addEventListener('click', () => {
 			const input = button.textContent;
 			const currStr = current.toString();
@@ -124,7 +128,7 @@
 					current = newVal;
 				}
 			} else {
-				switch(input) {
+				switch (input) {
 					case 'C':
 						clear();
 						break;
@@ -158,8 +162,8 @@
 				}
 			}
 			render();
-		})
-	})
-	
+		});
+	});
+
 	$clearHistory.addEventListener('click', clearHistory);
-}())
+})();
